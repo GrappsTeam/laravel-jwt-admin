@@ -79,9 +79,9 @@ class AuthController extends Controller
 
         User::unguard();
         $user = User::create([
-            'name' => $userData['name'],
-            'email' => $userData['email'],
-            'password' => bcrypt($userData['password']),
+            'name'      => $userData['name'],
+            'email'     => $userData['email'],
+            'password'  => bcrypt($userData['password']),
         ]);
         User::reguard();
 
@@ -92,7 +92,7 @@ class AuthController extends Controller
         if($hasToReleaseToken) {
             return $this->login($request);
         }
-        
+    
         return $this->response->created();
     }
 
