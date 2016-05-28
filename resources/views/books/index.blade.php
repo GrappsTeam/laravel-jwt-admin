@@ -16,6 +16,8 @@
                     <th>Title</th>
                     <th>Author Name</th>
                     <th>Page Count</th>
+                    <th>User ID</th>
+
                     <th></th>
                 </tr>
             </thead>
@@ -26,6 +28,7 @@
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author_name }}</td>
                     <td>{{ $book->pages_count }}</td>
+                    <td>{{ $book->user_id}}</td>
                     <td>
                         <a href="/user/{{ $book->id }}/edit" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
                 

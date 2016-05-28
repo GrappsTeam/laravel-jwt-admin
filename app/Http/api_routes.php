@@ -19,6 +19,11 @@ $api->version('v1', function ($api) {
 		return \App\User::all();
 	});
 
+
+	$api->get('freebooks',function() {
+		return \App\Book::all();
+	});
+
 $api->group(['middleware' => 'api.auth'], function ($api) {
 	$api->get('books', 'App\Api\V1\Controllers\BookController@index');
 	$api->get('books/{id}', 'App\Api\V1\Controllers\BookController@show');
@@ -31,5 +36,7 @@ $api->group(['middleware' => 'api.auth'], function ($api) {
 /// this line can replace all of the "book methods from above"
 /// $api->resource('books', 'App\Api\V1\Controllers\BookController');
 
+// Token
+// eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJpc3MiOiJodHRwOlwvXC9kZXYuYWRtaW5cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE0NjQzNDI5ODIsImV4cCI6MTQ2NDM0NjU4MiwibmJmIjoxNDY0MzQyOTgyLCJqdGkiOiIyMWM5YjhhODEzZmM0Y2ViZGU5MDNjN2Q4ZDhjOGNlZiJ9.pjX8kCJ0PnuKmjEaXI9K3IHs9DwTmaKBoN1a5sDzeos
 
 });
