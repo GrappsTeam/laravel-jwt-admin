@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Book;
 use View;
+use Session;
+use Redirect;
 
 class BookController extends Controller
 {
@@ -43,18 +45,35 @@ class BookController extends Controller
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
+    $this->validate($request, [
+      'title' => 'required|max:255',
+      'author_name' => 'required',
+    ]);
     $book = new Book;
 
-    $book->title  = Input::get('title');
-    $book->author_name      = Input::get('author_name');
-    $book->pages_count   = Hash::make(Input::get('pages_count'));
+    $book->title  = $request->title;
+    $book->author_name = $request->author_name;
+    $book->pages_count = $request->pages_count;
 
     $book->save();
 
+    Session::flash('flash_message', 'Task successfully added!');
+
+
     return Redirect::to('/books');
   }
+
+
+  public function show($id)
+  {
+    $book = Book::findOrFail($id);
+
+    return View::make('books.show', [ 'book' => $book ]);
+
+  }
+
 
   /**
    * Show the form for editing the specified Book.
@@ -64,9 +83,9 @@ class BookController extends Controller
    */
   public function edit($id)
   {
-    $book = Book::find($id);
+    $book = Book::findOrFail($id);
 
-    return View::make('books.edit', [ 'book' => $Book ]);
+    return View::make('books.edit', [ 'book' => $book ]);
   }
 
   /**
@@ -75,15 +94,20 @@ class BookController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id, Request $request)
   {
-    $book = Book::find($id);
+    $book = Book::findOrFail($id);
 
-    $book->title = Input::get('title');
-    $book->author_name      = Input::get('author_name');
-    $book->pages_count   = Hash::make(Input::get('pages_count'));
+    $this->validate($request, [
+      'title' => 'required',
+      'author_name' => 'required'
+    ]);
 
-    $book->save();
+    $input = $request->all();
+
+    $book->fill($input)->save();
+
+    Session::flash('flash_message', 'Book successfully Edited!');
 
     return Redirect::to('/books');
   }

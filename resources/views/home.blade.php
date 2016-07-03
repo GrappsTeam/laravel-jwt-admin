@@ -40,7 +40,6 @@
     </div> <!-- panel default -->
 
 
-    
 
       <div class="panel panel-default">
         <div class="panel-heading">Books List</div>
@@ -65,7 +64,7 @@
                     <td>{{ $book->author_name }}</td>
                     <td>{{ $book->pages_count }}</td>
                     <td>
-                      <a href="/user/{{ $book->id }}/edit" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                      <a href="/books/{{ $book->id }}/edit" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
                     </td>
                   </tr>
                   @endforeach
