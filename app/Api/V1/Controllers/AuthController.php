@@ -59,7 +59,15 @@ class AuthController extends Controller
 
 
 
-
+    /**
+     * Register user
+     *
+     * Register a new user with a 'name',  'email' and `password`.
+     *
+     * @Post("/")
+     * @Versions({"v1"})
+     * @Request("username=foo&password=bar", contentType="application/x-www-form-urlencoded")
+     */
     public function signup(Request $request)
     {
         $signupFields = ['name', 'email', 'password'];

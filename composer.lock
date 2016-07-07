@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2592ae59b669eca04a0df60e4e78fcde",
+    "hash": "28407a0942e9ce70ec92d291c2be855d",
     "content-hash": "c6daf3583270dccc12cc4cc0fd94956c",
     "packages": [
         {
             "name": "barryvdh/laravel-cors",
-            "version": "v0.8.0",
+            "version": "v0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-cors.git",
-                "reference": "39975d7505757488f982ca132bcd02c704792fd8"
+                "reference": "1998c8c7295d167cb744bbc45fbefad9b86b836c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-cors/zipball/39975d7505757488f982ca132bcd02c704792fd8",
-                "reference": "39975d7505757488f982ca132bcd02c704792fd8",
+                "url": "https://api.github.com/repos/barryvdh/laravel-cors/zipball/1998c8c7295d167cb744bbc45fbefad9b86b836c",
+                "reference": "1998c8c7295d167cb744bbc45fbefad9b86b836c",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.1.x|5.2.x",
+                "illuminate/support": "5.1.x|5.2.x|5.3.x",
                 "php": ">=5.5.9",
                 "symfony/http-foundation": "~2.7|~3.0",
                 "symfony/http-kernel": "~2.7|~3.0"
@@ -58,7 +58,7 @@
                 "crossdomain",
                 "laravel"
             ],
-            "time": "2016-02-11 18:38:09"
+            "time": "2016-06-22 06:36:34"
         },
         {
             "name": "classpreloader/classpreloader",
